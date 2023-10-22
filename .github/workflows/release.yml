@@ -12,12 +12,8 @@ jobs:
         target: [x86_64-pc-windows-gnu, x86_64-unknown-linux-musl]
     steps:
       - uses: actions/checkout@master
-      - uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: g++ pkg-config libx11-dev libasound2-dev libudev-dev
-          version: 1.0
       - name: Compile and release
-        uses: rust-build/rust-build.action@v1.4.3
+        uses: pr1vateer/rust-build.action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
